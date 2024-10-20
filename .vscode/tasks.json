@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Node",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-o",
+                "${workspaceFolder}/node",
+                "${workspaceFolder}/node.c",
+                "-lws2_32",  
+                "-pthread"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build the Node with Winsock and pthread support"
+        },
+        {
+            "label": "Build TCP Client",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-o",
+                "${workspaceFolder}/tcp_client",
+                "${workspaceFolder}/tcp_client.c",
+                "-lws2_32" 
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build the TCP Client with Winsock"
+        }
+    ]
+}
